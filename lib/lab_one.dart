@@ -1,4 +1,7 @@
+//Siddhartha Bhattarai
+
 import 'dart:io';
+import 'dart:math';
 
 void main() {
   //  print(isSquare());
@@ -8,7 +11,14 @@ void main() {
   // print(temperatureChange());
   // print(isevenOrOdd());
   //print(fibonacci());
-  print(regex());
+  // print(regex());
+  // print(isPalindrome());
+  // print(isFactorialMatch());
+  //  print(isMinMaxAvg());
+  // print(isMinMaxAvg());
+  //print(isLeapYear());
+  // print(calculator());
+  print(multiplication());
 }
 
 // 1. Check to see if given two input gives us a square or not
@@ -155,3 +165,120 @@ String regex() {
 
   return "Vowels : $vowel , Consonant: $consonant, Special: $special, Digit: $digits";
 }
+
+//9. Palindrome
+String isPalindrome() {
+  print("Please enter a number :");
+  int userInput = int.parse(stdin.readLineSync()!);
+  int a;
+  int b;
+  int c = userInput;
+  String result = "";
+  do {
+    b = userInput % 10;
+    result = result + b.toString();
+    userInput = userInput ~/ 10;
+  } while (userInput != 0);
+  a = int.parse(result);
+  return (a == c ? "Is a Palindrome" : "is not a palindrome");
+}
+
+//10. Factorial both for loop and factorial
+
+String isFactorialMatch() {
+  print("Enter a number :");
+  int input = int.parse(stdin.readLineSync()!);
+  int loopMethod = 1;
+  int recursiveMethod;
+
+  for (int i = 1; i <= input; i++) {
+    loopMethod = loopMethod * i;
+  }
+
+  int factorial(int n) {
+    if (n == 0) return 1;
+
+    return factorial(n - 1) * n;
+  }
+
+  recursiveMethod = factorial(input);
+
+  return (loopMethod == recursiveMethod
+      ? "There is a match $recursiveMethod"
+      : "There is no match $recursiveMethod $loopMethod");
+}
+
+//11. Given a list of numbers find the min max avg
+String isMinMaxAvg() {
+  List<int> integernumbers = [];
+  int n = 10;
+
+  do {
+    print("Please write a number($n remaining) :");
+    int input = int.parse(stdin.readLineSync()!);
+    n--;
+    integernumbers.add(input);
+  } while (n > 0);
+
+  int maximum = integernumbers.reduce(max);
+  int minimum = integernumbers.reduce(min);
+
+  int sum = integernumbers.fold(0, (prev, e) => prev + e);
+  double avg = sum / integernumbers.length;
+
+  return "The maximum number is $maximum , minimum is $minimum, Average is $avg";
+}
+
+//12. Checking if the given year is leap year
+bool isLeapYear() {
+  print("Write the year to check if it is loop year : ");
+  int year = int.parse(stdin.readLineSync()!);
+  return (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) ? true : false;
+}
+
+//Simple Calculator
+String calculator() {
+  print("Write the first number : ");
+  int first = int.parse(stdin.readLineSync()!);
+
+  print("Write the second number : ");
+  int second = int.parse(stdin.readLineSync()!);
+  print("Write the operation (+,*,-,/,%) : ");
+  String operation = stdin.readLineSync()!;
+  if (second == 0 && operation.contains("/")) {
+    return "Error";
+  }
+  double result;
+  switch (operation) {
+    case "+":
+      result = first + second.toDouble();
+      break;
+
+    case "-":
+      result = first - second.toDouble();
+    case "*":
+      result = first * second.toDouble();
+    case "/":
+      result = first / second;
+    case "%":
+      result = first % second.toDouble();
+    default:
+      return "Please use a valid operator";
+  }
+
+  return "The result is $result";
+}
+
+//Multiplication table
+
+String multiplication() {
+  print("Enter a table for creating multiplication table :");
+  int input = int.parse(stdin.readLineSync()!);
+  String result = "";
+  for (int i = 1; i <= 10; i++) {
+    result += ("$input * $i = ${i * input}\n");
+  }
+  return result;
+}
+
+//Siddhartha Bhattarai
