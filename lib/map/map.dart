@@ -1,16 +1,16 @@
-void main() {
-  // Map cityCountry = {"Nepal": "Kathmandu", "Japan": "Tokyo", "China": "China"};
-  // print(cityCountry);
+// void main() {
+//   // Map cityCountry = {"Nepal": "Kathmandu", "Japan": "Tokyo", "China": "China"};
+//   // print(cityCountry);
 
-  Map cityCounty = Map<String, String>();
-  cityCounty['Dhaka'] = 'Bangladesh';
-  cityCounty['Ottawa'] = 'Canada';
-  cityCounty['Mexico City'] = 'Mexico';
+//   Map cityCounty = Map<String, String>();
+//   cityCounty['Dhaka'] = 'Bangladesh';
+//   cityCounty['Ottawa'] = 'Canada';
+//   cityCounty['Mexico City'] = 'Mexico';
 
-  // print(cityCounty);
-  print(cityCounty.keys);
-  print(cityCounty.values);
-  String searchValue = "Ottawa";
+//   // print(cityCounty);
+//   print(cityCounty.keys);
+//   print(cityCounty.values);
+//   String searchValue = "Ottawa";
 
-  print("$searchValue is in ${cityCounty[searchValue]}");
-}
+//   print("$searchValue is in ${cityCounty[searchValue]}");
+// }
