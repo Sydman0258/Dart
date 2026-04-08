@@ -11,7 +11,7 @@ abstract class Shape {
   }
 }
 
-class Circle extends Shape {
+class Circle implements Shape {
   double radius;
 
   Circle(this.radius);
@@ -22,8 +22,18 @@ class Circle extends Shape {
   }
 
   @override
+  void printShape() {
+    print("Area : ${calculateArea()} , Perimeter : ${calculatePerimiter()} ");
+  }
+
+  @override
   double calculatePerimiter() {
     return 2 * (22 / 7) * radius;
+  }
+
+  @override
+  bool isLargerThan(Shape other) {
+    return calculateArea() > other.calculateArea();
   }
 }
 
