@@ -6,8 +6,8 @@ abstract class Shape {
     print("Area : ${calculateArea()} , Perimeter : ${calculatePerimiter()} ");
   }
 
-  bool isLargerThan(Shape other) {
-    return calculateArea() > other.calculateArea();
+  bool isLargerThan(Shape none) {
+    return calculateArea() > none.calculateArea();
   }
 }
 
